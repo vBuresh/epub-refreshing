@@ -1,0 +1,88 @@
+baseURL: "https://cybmir.ru"
+DefaultContentLanguage: ru
+languageCode: en-us
+title: Hugo ePub Maker
+theme: hugo-epub-maker
+author: Владимир Буреш
+copyright: Copyright © 2023 Vladimir Buresh, https://cybmir.ru
+disableKinds:
+  - RSS
+  - robotsTXT
+  - "404"
+  - taxonomy
+  - section
+  - term
+  - sitemap
+uglyurls: true
+relativeURLs: true
+disablePathToLower: true
+permalinks:
+  blog: /OEBPS/chapter/:filename
+  /: /OEBPS/:filename
+mediaTypes:
+  application/xhtml+xml:
+    suffixes:
+      - xhtml
+  application/opf+xml:
+    suffixes:
+      - opf
+  application/x-dtbncx+xml:
+    suffixes:
+      - ncx
+outputFormats:
+  XHTML:
+    mediaType: application/xhtml+xml
+    isHTML: true
+    permalinkable: true
+  OPF:
+    mediaType: application/opf+xml
+    isHTML: true
+    permalinkable: true
+    path: OEBPS
+    baseName: content
+  NCX:
+    mediaType: application/x-dtbncx+xml
+    isHTML: true
+    permalinkable: true
+    path: OEBPS
+    baseName: toc
+outputs:
+  page:
+    - XHTML
+  home:
+    - OPF
+    - NCX
+markup:
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer: false
+    parser:
+      attribute: true
+      autoHeadingID: false
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xHTML: true
+params:
+  imgsize: 1200x q70
+# imgsize = "800x png" # png работает лучше со старыми читалками
+  bookid: "" # если незаполнено (пусто), берется временная метка Unix
+# metadata книги   
+  title: HUGO Epub RFM Тема
+  subtitle: from cybmir.ru # (опционально)
+  description: Простая HUGO-тема для создания эл.книг в формате .epub # (опционально)
+  creator: Буреш, Владимир # format: lastname, firstname
+  author: Владимир Буреш # format: firstname lastname
+  publisher: Студия ArtBB
+  audience: teenagers, adults
+  subject: # (optional)
+    - HUGO
+    - Epub
+    - Ebook
+
