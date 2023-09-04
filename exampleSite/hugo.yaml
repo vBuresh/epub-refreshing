@@ -5,6 +5,7 @@ title: Hugo ePub Maker
 theme: hugo-epub-maker
 author: Владимир Буреш
 copyright: Copyright © 2023 Vladimir Buresh, https://cybmir.ru
+
 disableKinds:
   - RSS
   - robotsTXT
@@ -19,6 +20,7 @@ disablePathToLower: true
 permalinks:
   blog: /OEBPS/chapter/:filename
   /: /OEBPS/:filename
+
 mediaTypes:
   application/xhtml+xml:
     suffixes:
@@ -29,6 +31,9 @@ mediaTypes:
   application/x-dtbncx+xml:
     suffixes:
       - ncx
+
+publishDir: _pre_public        
+
 outputFormats:
   XHTML:
     mediaType: application/xhtml+xml
@@ -46,12 +51,14 @@ outputFormats:
     permalinkable: true
     path: OEBPS
     baseName: toc
+
 outputs:
   page:
     - XHTML
   home:
     - OPF
     - NCX
+
 markup:
   goldmark:
     extensions:
@@ -69,6 +76,7 @@ markup:
       hardWraps: false
       unsafe: true
       xHTML: true
+
 params:
   imgsize: 1200x q70
 # imgsize = "800x png" # png работает лучше со старыми читалками
